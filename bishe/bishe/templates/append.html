@@ -6,6 +6,12 @@
 </head>
 <body>
 	<a href="/home">首页</a>
+    {% if user == 'not_login' %}
+        <a href="/login/">账号登录</a>
+    {% else %}
+        <a href="/user_home/">{{ user }}</a>,您好
+        <a href="/login_out/">登出</a >
+    {% endif %}
 	<form action='test' method="post">
 		{% csrf_token %}
 		<input type="text" name="uname" value="" placeholder="姓名">

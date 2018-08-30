@@ -1,0 +1,26 @@
+<!-- user_center.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+ 
+    </head>
+    <body>
+        <div>
+          姓名:{{　stu.user_name }}
+          学号:{{ stu.stu_id }}
+          <a href="#" onClick="document.getElementById('words').style.display='block'; return false;">修改密码</a>
+          <div id="words" style="display:none;">
+            <form action="/chg_pwd/" method="post">
+            {%csrf_token%}
+              <input type="password" name="pwd">
+              再次输入
+              <input type="password" name="pwd2">
+              <input type="submit" value="确认修改">
+            </form>
+        </div>
+        </div>
+    </body>
+</html>

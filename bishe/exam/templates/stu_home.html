@@ -1,7 +1,9 @@
+<!-- 11.html -->
 <!DOCTYPE html>
 <html lang="en">
+ 
     <head>
-        <title>管理员个人中心</title>
+        <title>学生个人中心</title>
         <style>
             .userMenu {
                 float: left;
@@ -18,22 +20,18 @@
     </head>
  
     <body>
-        {% if user == 'not_login' %}
-            <a href="/login/">账号登录</a>
-        {% else %}
-            <a href="/user_home/">{{ user }}</a>,您好
-        {% endif %}
-        <a href="/home">返回主页</a >
-        <a href="/login_out/">登出</a >
-        <a href="/append">添加用户</a>
+        <a href="/home/">返回主页</a>
+        <a href="/login_out/">登出</a>
         <div class="userWrap">
             <ul class="userMenu">
-                <li class="current" data-id="center">学生管理</li>
-                <li data-id="question">题库管理</li>
-                <li data-id="examing">考试管理</li>
+                <li class="current" data-id="center">个人信息</li>
+                <li data-id="score">历史成绩</li>
+                <li data-id="mistakes">历史错题</li>
+                <li data-id="collect">收藏夹</li>
             </ul>
             <div id="content"></div>
         </div>
+    </body>
     <script>
         $(function() {
             $(".userMenu").on("click", "li", function() {
@@ -47,23 +45,26 @@
                 var pathn, i;
                 switch(sId) {
                     case "#center":
-                        pathn = "/admin_center/";
+                        pathn = "/user_center/";
                         i = 0;
                         break;　　　　　　　
-                    case "#question":
-                        pathn = "/admin_question/";
+                    case "#score":
+                        pathn = "/user_score/";
                         i = 1;
                         break;
-                    case "#examing":
-                        pathn = "/admin_examing/";
+                    case "#mistakes":
+                        pathn = "/user_mistakes/";
                         i = 2;
-                        break;　　　　　
+                        break;
+                    case "#collect":
+                        pathn = "/user_collect/";
+                        i = 3;
+                        break;　　　　　　
                     default:
-                        pathn = "/admin_center/";
+                        pathn = "/user_center/";
                         i = 0;
                         break;
                 }
-
                 $("#content").load(pathn); //加载相对应的内容
                 $(".userMenu li").eq(i).addClass("current").siblings().removeClass("current"); //当前列表高亮
             }
@@ -71,6 +72,5 @@
             loadInner(sId);
         });
     </script>
-    </body>
  
 </html>

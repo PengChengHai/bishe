@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div>
+            历史成绩:
+            <table>
+                <th>考试内容</th>
+                <th>考试成绩</th>
+                <th>考试时间</th>
+            {% for h in history %}            
+                <tr>
+                    <td>{{ h.title }}</td>
+                    <td>{{ h.count }}</td>
+                    <td>{{ h.time }}</td>
+                </tr>
+               
+            {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

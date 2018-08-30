@@ -1,0 +1,18 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>login</title>
+</head>
+<body>
+    登录
+    <form action="/login_go/" method="post">
+    <span style="color: red">{{ error }}</span>
+    {%csrf_token%}<!-- csrf_token用来验证 -->
+        <input type="text" name="uname">
+        <input type="password" name="pwd">
+        <input type="submit" value="登录">
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- apply_tes
+t.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>测试用网页</title>
+</head>
+<body>
+    <form action="/apply_test/" method="post">
+    {%csrf_token%}
+        学号
+        <input type="text" name="s_id">
+        姓名
+        <input type="text" name="name">
+        密码
+        <input type="password" name="pwd">
+        <input type="submit" value="add">
+    </form>
+</body>
+</html>

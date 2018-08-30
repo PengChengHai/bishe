@@ -1,0 +1,21 @@
+<!-- exam_start.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>在线考试</title>
+</head>
+<body>
+    <form action="/exam_over/" method="get">
+        {% for t in exam %}
+            {{ t.question }}
+            <input type="radio" name="{{ t.Q_id }}" value="a">{{ t.option_A }}
+            <input type="radio" name="{{ t.Q_id }}" value="b">{{ t.option_B }}
+            <input type="radio" name="{{ t.Q_id }}" value="c">{{ t.option_C }}
+            <input type="radio" name="{{ t.Q_id }}" value="d">{{ t.option_D }}
+            <br>
+        {% endfor %}
+        <input type="submit" value="提交试卷">
+    </form>
+</body>
+</html>

@@ -5,9 +5,15 @@
 	<title>home</title>
 </head>
 <body>
-	<a href="/append">添加用户</a>
 	<a href="/questiondb">查看题库</a>
-	<a href="/teacher_home">管理员中心</a>
+	{% if user == 'not_login' %}
+        <a href="/login/">账号登录</a>
+    {% else %}
+        <a href="/user_home/">{{ user }}</a>,您好
+        <a href="/login_out/">登出</a>
+    {% endif %}
+    <a href="/exam_online/">在线考试</a>
+    <!-- <a href="/show/">在线题库</a> -->
 </body>
 </html>
 

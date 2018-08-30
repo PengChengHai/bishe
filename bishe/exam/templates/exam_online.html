@@ -1,0 +1,29 @@
+<!-- exam_online.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>在线考试</title>
+</head>
+<body>
+    <li>考生信息:</li>
+    学号：{{stu.stu_id}}<br>
+    姓名：{{stu.user_name}}
+    <li>考生须知：<li>
+    1.考试界面右上角有倒计时提醒，请在时间内提交试卷，否会将到时自动提交。
+    <br>
+    ２.结束考试：考生在完成考试后，点击界面左下角“提交答案”提交试卷。
+    <br>
+    请阅读考生须知，并确认个人信息及考试科目无误后，点击“开始考试”，进入考试界面。
+    <br>
+    <h3>请选择考试科目：</h3>
+    <form action="/exam_start/" method="get">
+        <select name='s_subject'>
+            {% for t in title %}
+                <option value="{{t.subject}}">{{t.title}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="开始考试">
+    </form>
+</body>
+</html>
