@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <table>
+    {% for U in User %}
+        <tr>
+            <td>{{ U.stu_id }}</td>
+            <td>{{ U.user_name }}</td>
+            <td>{{ U.apply_time }}</td>
+        </tr>
+    {% endfor %}       
+    </table>
+</body>
+</html>

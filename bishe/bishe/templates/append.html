@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>添加用户</title>
+</head>
+<body>
+	<a href="/home">首页</a>
+	<form action='test' method="post">
+		{% csrf_token %}
+		<input type="text" name="uname" value="" placeholder="姓名">
+		<br>
+		<input type="text" name="stu_id" value="" placeholder="学号">
+		<br>
+		<input type="password" name="upwd" value="" placeholder="密码">
+		<br>
+		<input type="submit" value="添加用户">
+	</form>
+</body>
+</html>

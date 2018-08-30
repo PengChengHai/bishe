@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>题库</title>
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	  $("#show").click(function(){
+	    $("p").toggle();
+	  });
+	});
+	</script>
+</head>
+<body>
+	<a href="/home">首页</a>
+	<button id="show">显示答案</button>
+	<form>
+	<ol>
+	{% for q in question %}
+	<li>
+	{{ q.question }}
+	<br>
+	<input type="radio" name="{{ q.Q_id }}" value="A">{{ q.option_A }}<br>
+	<input type="radio" name="{{ q.Q_id }}" value="B">{{ q.option_B }}<br>
+	<input type="radio" name="{{ q.Q_id }}" value="C">{{ q.option_C }}<br>
+	<input type="radio" name="{{ q.Q_id }}" value="D">{{ q.option_D }}<br>
+	<p class='key' display='none' style="display: none;">{{ q.q_key }}</p>
+	</li>
+	{% endfor %}
+	</ol>	
+	<input type="submit" value="提交">
+	</form>
+</body>
+</html>
+
+<!-- target.html 页面的代码 -->

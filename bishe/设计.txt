@@ -1,0 +1,45 @@
+设计.txt
+
+一.登录注册（用学号姓名登录）
+二.在线考试
+	1.答题（从题池中随机抽取指定题目）
+	2.历史分数查询（）
+	3.考试介绍
+	4.只看错题
+三.在线学习
+	1.题库（管理员能实现题库的增删改查）
+	  I.题库一张表（导入进去默认是会出现在题池中）可以手动将该题移除题池，但题任然保留在数据库中
+	2.历史学习
+	3.错题
+	4.
+
+收藏功能
+
+点击事件 --->  session = {'from':{'1':'a',} }
+from表单 ---> 数据 
+session.get('from')
+
+User
+Uid user_name pwd apply_time stu_id 
+
+用户表
+U_id    stu_id   user_name     pwd     apply_time
+主键   14位整型   20字符型    20字符型    datatime
+
+题库表
+Q_id   question    option_A     option_B    option_C     option_D     q_key   q_option
+主键    textfield                                               char
+
+
+收藏表
+C_id     U_id     Q_id    status
+
+
+访问表
+V_id    U_id   Q_id  status
+
+
+管理员模式
+1.修改已有题库
+2.设置考试
+3.导出已有题库
