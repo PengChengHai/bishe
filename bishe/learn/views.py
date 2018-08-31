@@ -33,21 +33,37 @@ def test(request):
 
 def show(request):  # 题库
     try:
-        subject = str(request.GET['subject'])
+        subject = request.GET['subject']
+        if subject == '':
+            subject = request.session.get('subject')
+            print(subject)
         request.session['subject'] = subject
     except:
         subject = request.session.get('subject')
+        print(subject)
     question = models.Question.objects.filter(Q_subject=subject)
-    return render(request, 'show.html', {'question': question})
+    paginator = Paginator(question, 5)
+    page = request.GET.get('page', 1)
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        contacts = paginator.page(1)
+    except EmptyPage:
+        contacts = pageinator.page(paginator.num_pages)
+    return render(request, 'show.html', {'contacts': contacts})
     # return HttpResponse('题库')
 
 
 def questiondb(request):  # 选择题库类型
     try:
-        if request.GET['subject']:
+        if request.GET['page']:
             return show(request)
     except:
-        return render(request, 'questiondb.html')
+        try:
+            if request.GET['subject']:
+                return show(request)
+        except:
+            return render(request, 'questiondb.html')
 
 
 # def teacher_home(request):
